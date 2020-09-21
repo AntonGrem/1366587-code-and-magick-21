@@ -29,7 +29,7 @@ const getMaxElement = function (arr) {
 };
 
 const generateColor = function () {
-  return '#' + Math.floor(Math.random() * 16777215).toString(16);
+  return `#` + Math.floor(Math.random() * 16777215).toString(16);
 };
 
 
@@ -40,29 +40,27 @@ window.renderStatistics = function (ctx, names, times) {
   ctx.fillStyle = `grey`;
   ctx.font = `16px PT Mono`;
   ctx.fillText(`Ура вы победили!`, CLOUD_X + GAP, 40);
-  ctx.fillText('Список результатов:', CLOUD_X + GAP, 60);
+  ctx.fillText(`Список результатов:`, CLOUD_X + GAP, 60);
 
 
   const maxTime = getMaxElement(times);
 
   for (let i = 0; i < names.length; i++) {
-    let colorBar = generateColor(255, i, i);
-    ctx.fillStyle = 'grey';
+    const colorBar = generateColor(255, i, i);
+    ctx.fillStyle = `grey`;
     ctx.fillText(parseInt(times[i], 10), OBJECT_X_TEXT + GAP_BAR * i, OBJECT_Y_NUMBER);
-    if (names[i] === 'Вы') {
-      ctx.fillStyle = 'rgba(255, 0, 0, 1)';
+    if (names[i] === `Вы`) {
+      ctx.fillStyle = `rgba(255, 0, 0, 1)`;
     } else {
       ctx.fillStyle = colorBar;
     }
-    let heightBar = (BAR_HEIGHT * times[i]) / maxTime;
+    const heightBar = (BAR_HEIGHT * times[i]) / maxTime;
     if (heightBar === BAR_HEIGHT) {
       ctx.fillRect(OBJECT_X_BAR + GAP_BAR * i, OBJECT_Y_BAR, BAR_WIDTH, (BAR_HEIGHT * times[i]) / maxTime);
     } else {
       ctx.fillRect(OBJECT_X_BAR + GAP_BAR * i, OBJECT_Y_BAR + (BAR_HEIGHT - heightBar), BAR_WIDTH, (BAR_HEIGHT * times[i]) / maxTime);
     }
-    /* ctx.fillRect(OBJECT_X_BAR + GAP_BAR * i, OBJECT_Y_BAR, BAR_WIDTH, (BAR_HEIGHT * times[i]) / maxTime);*/
-    ctx.fillStyle = 'grey';
+    ctx.fillStyle = `grey`;
     ctx.fillText(names[i], OBJECT_X_TEXT + GAP_BAR * i, OBJECT_Y_TEXT);
-    colorBar = generateColor(255, i, i);
   }
 };

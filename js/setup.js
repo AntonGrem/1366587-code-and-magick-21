@@ -22,23 +22,6 @@ const randomNumber = function (min, max) {
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
-/* for (let i = 0; i < 4; i++) {
-  const randomN = randomNumber(0, WIZARD_NAMES.length - 1);
-  const randomN1 = randomNumber(0, WIZARD_SECOND_NAMES.length - 1);
-  const randomN2 = randomNumber(0, COAT_COLOR.length - 1);
-  const randomN3 = randomNumber(0, EYES_COLOR.length - 1);
-  const randomName = WIZARD_NAMES[randomN] + ` ` + WIZARD_SECOND_NAMES[randomN1];
-  const randomCoatColor = COAT_COLOR[randomN2];
-  const randomEyesColor = EYES_COLOR[randomN3];
-
-  const wizard = new Wizards(randomName, randomCoatColor, randomEyesColor);
-  const wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector(`.setup-similar-label`).textContent = wizard.name;
-  wizardElement.querySelector(`.wizard-coat`).style.fill = wizard.coatColor;
-  wizardElement.querySelector(`.wizard-eyes`).style.fill = wizard.eyesColor;
-  similarListElement.appendChild(wizardElement);
-}*/
-
 const renderWizard = function () {
   const randomN = randomNumber(0, WIZARD_NAMES.length - 1);
   const randomN1 = randomNumber(0, WIZARD_SECOND_NAMES.length - 1);
